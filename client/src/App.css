@@ -1,0 +1,1451 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #eaf2ff;
+  background: #05070d;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --bg: #05070d;
+  --panel: #0c1220;
+  --panel-hover: #101b2e;
+  --blue: #00aaff;
+  --blue-glow: rgba(0, 170, 255, 0.25);
+  --red: #ff244f;
+  --text: #eaf2ff;
+  --muted: #8b9bb4;
+  --border: #1a2a42;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(0, 110, 255, 0.12), transparent 35%),
+    radial-gradient(ellipse at 90% 20%, rgba(255, 20, 70, 0.07), transparent 30%),
+    var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* NAVIGATION */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding: 19px 6%;
+  background: rgba(5, 7, 13, 0.9);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(18px);
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--blue);
+  text-shadow: 0 0 18px var(--blue-glow);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  padding: 9px 13px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+  background: rgba(0, 170, 255, 0.07);
+  border-color: var(--border);
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.08);
+}
+
+/* PAGE LAYOUT */
+
+.page-container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+  padding: 45px 0 65px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text);
+  line-height: 1.2;
+}
+
+h1,
+h2 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+  letter-spacing: -1.5px;
+}
+
+p {
+  line-height: 1.7;
+}
+
+.section-heading {
+  margin-bottom: 26px;
+}
+
+.section-heading h2 {
+  font-size: clamp(22px, 3vw, 32px);
+  margin-bottom: 10px;
+}
+
+.section-heading p,
+.subtitle {
+  color: var(--muted);
+}
+
+/* HERO */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 7%;
+  border: 1px solid #163552;
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 80% 10%, rgba(0, 170, 255, 0.2), transparent 40%),
+    linear-gradient(135deg, #0c1424, #080b14 65%, #160b17);
+  box-shadow: 0 0 40px rgba(0, 100, 255, 0.07);
+}
+
+.hero h1 {
+  max-width: 800px;
+  margin: 0 0 22px;
+  font-size: clamp(32px, 5vw, 58px);
+  line-height: 1.15;
+}
+
+.hero p {
+  max-width: 650px;
+  color: #a8b9d2;
+}
+
+.hero h1 span,
+.highlight {
+  color: var(--blue);
+  text-shadow: 0 0 22px var(--blue-glow);
+}
+
+/* BUTTONS */
+
+.primary-button,
+button.primary-button,
+button[type="submit"] {
+  border: 1px solid var(--blue);
+  border-radius: 9px;
+  padding: 12px 19px;
+  background: linear-gradient(135deg, #008de8, #0055d9);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 0 17px rgba(0, 145, 255, 0.2);
+}
+
+.primary-button:hover,
+button.primary-button:hover,
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 26px rgba(0, 170, 255, 0.42);
+  filter: brightness(1.15);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* STATS */
+
+.stats,
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 17px;
+  margin: 28px 0 45px;
+}
+
+.stat-card,
+.stat-item {
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: linear-gradient(145deg, #0d1524, #090d16);
+  transition: 0.2s ease;
+}
+
+.stat-card:hover,
+.stat-item:hover {
+  border-color: var(--blue);
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.09);
+}
+
+.stat-card h3,
+.stat-item h3 {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-size: 28px;
+}
+
+.stat-card p,
+.stat-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* SEARCH */
+
+.search-bar {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px 0 30px;
+}
+
+.search-bar input,
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #233650;
+  border-radius: 9px;
+  outline: none;
+  background: #080e19;
+  color: var(--text);
+  transition: 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #657791;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.1);
+}
+
+select option {
+  background: #0c1220;
+  color: white;
+}
+
+/* PROJECT CARDS */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.project-card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(150deg, #0d1524, #080c15);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--blue);
+  box-shadow: 0 8px 30px rgba(0, 145, 255, 0.12);
+}
+
+.project-card h2,
+.project-card h3 {
+  margin-top: 12px;
+  font-size: 19px;
+}
+
+.project-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.project-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(0, 170, 255, 0.45);
+  border-radius: 12px;
+  background: rgba(0, 170, 255, 0.09);
+  color: var(--blue);
+  font-size: 23px;
+  box-shadow: inset 0 0 15px rgba(0, 170, 255, 0.05);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.tag {
+  padding: 6px 10px;
+  border: 1px solid #193b5b;
+  border-radius: 6px;
+  background: rgba(0, 170, 255, 0.07);
+  color: #69caff;
+  font-size: 11px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+/* RED NEON ACCENTS */
+
+.danger,
+.status-rejected {
+  color: var(--red);
+}
+
+.danger-button {
+  border: 1px solid var(--red);
+  border-radius: 8px;
+  padding: 10px 15px;
+  background: rgba(255, 36, 79, 0.1);
+  color: #ff6b88;
+}
+
+.danger-button:hover {
+  background: rgba(255, 36, 79, 0.2);
+  box-shadow: 0 0 18px rgba(255, 36, 79, 0.2);
+}
+
+/* FORMS */
+
+form {
+  display: grid;
+  gap: 15px;
+}
+
+form label {
+  color: #b8c8df;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+form button {
+  justify-self: start;
+}
+
+/* APPLICATIONS & PROFILE */
+
+.application-card,
+.profile-card {
+  margin-bottom: 18px;
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.application-card:hover,
+.profile-card:hover {
+  border-color: #254a70;
+}
+
+.status,
+.status-pending {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 170, 255, 0.35);
+  border-radius: 20px;
+  background: rgba(0, 170, 255, 0.08);
+  color: #69caff;
+  font-size: 12px;
+}
+
+/* FOOTER */
+
+footer {
+  margin-top: 65px;
+  padding: 23px 6%;
+  border-top: 1px solid var(--border);
+  background: #060910;
+  color: #71829b;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* LINKS & SELECTION */
+
+::selection {
+  background: var(--blue);
+  color: #05070d;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 760px) {
+  .navbar {
+    padding: 16px 5%;
+  }
+
+  .nav-links {
+    gap: 4px;
+  }
+
+  .nav-links a {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 48px 25px;
+  }
+
+  .page-container {
+    width: 92%;
+    padding-top: 28px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 🔴 NEON RED + 🔵 ELECTRIC BLUE UPGRADE */
+
+:root {
+  --red: #ff1744;
+  --red-glow: rgba(255, 23, 68, 0.3);
+}
+
+/* Red and blue gradient hero */
+.hero {
+  border-color: #ff1744;
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(255, 23, 68, 0.22), transparent 42%),
+    radial-gradient(ellipse at 10% 90%, rgba(0, 170, 255, 0.22), transparent 45%),
+    #080b14;
+  box-shadow:
+    0 0 25px rgba(0, 170, 255, 0.10),
+    0 0 25px rgba(255, 23, 68, 0.08);
+}
+
+/* Make primary buttons alternate between blue and red */
+.primary-button,
+button.primary-button,
+button[type="submit"] {
+  border: 1px solid #ff1744;
+  background: linear-gradient(110deg, #006dff, #ff1744);
+  box-shadow: 0 0 18px rgba(255, 23, 68, 0.22);
+}
+
+.primary-button:hover,
+button.primary-button:hover,
+button[type="submit"]:hover {
+  box-shadow:
+    0 0 15px rgba(0, 170, 255, 0.4),
+    0 0 28px rgba(255, 23, 68, 0.35);
+}
+
+/* Red project-card glow */
+.project-card:hover {
+  border-color: #ff1744;
+  box-shadow:
+    0 0 12px rgba(255, 23, 68, 0.16),
+    0 0 25px rgba(0, 170, 255, 0.08);
+}
+
+/* Alternate red icon accents */
+.project-card:nth-child(even) .project-icon {
+  color: #ff4568;
+  border-color: #ff1744;
+  background: rgba(255, 23, 68, 0.1);
+  box-shadow: 0 0 14px rgba(255, 23, 68, 0.12);
+}
+
+/* Red navigation hover */
+.nav-links a:hover {
+  color: #ff4568;
+  border-color: rgba(255, 23, 68, 0.55);
+  background: rgba(255, 23, 68, 0.08);
+}
+
+/* Red highlights */
+.hero h1 span,
+.highlight {
+  color: #ff4568;
+  text-shadow: 0 0 20px rgba(255, 23, 68, 0.4);
+}
+
+/* Blue-red glowing section headings */
+.section-heading h2 {
+  text-shadow: 0 0 18px rgba(0, 170, 255, 0.13);
+  text-decoration-color: #ff1744;
+  text-decoration-thickness: 2px;
+}
+
+/* Red focus glow */
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #ff1744;
+  box-shadow: 0 0 0 3px rgba(255, 23, 68, 0.12);
+}
+
+/* Red line below navbar */
+.navbar {
+  border-bottom-color: rgba(255, 23, 68, 0.4);
+}
+
+/* Red status labels */
+.status-rejected {
+  color: #ff4568;
+  border-color: #ff1744;
+  background: rgba(255, 23, 68, 0.1);
+}
+
+/* ======================================
+   PROJECTPULSE — NEON AUTH SCREEN
+   Black × Electric Blue × Neon Red
+====================================== */
+
+.page-container:has(> .project-card) {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(0, 145, 255, 0.17), transparent 38%),
+    radial-gradient(ellipse at 85% 75%, rgba(255, 23, 68, 0.14), transparent 38%),
+    #05070d;
+}
+
+/* Subtle futuristic grid */
+.page-container:has(> .project-card)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(0, 170, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 170, 255, 0.045) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+/* Authentication card */
+.page-container:has(> .project-card) > .project-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px !important;
+  margin: 0 !important;
+  padding: 38px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 170, 255, 0.45);
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(14, 23, 40, 0.97),
+    rgba(7, 10, 19, 0.98)
+  );
+  box-shadow:
+    0 0 25px rgba(0, 145, 255, 0.12),
+    0 0 45px rgba(255, 23, 68, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  animation: authAppear 0.55s ease both;
+}
+
+/* Red-blue neon line across the card */
+.page-container:has(> .project-card) > .project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00aaff, #7257ff, #ff1744);
+  box-shadow: 0 0 18px rgba(0, 170, 255, 0.45);
+}
+
+/* Logo icon */
+.page-container:has(> .project-card) .project-icon {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 20px;
+  border: 1px solid #00aaff;
+  border-radius: 15px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 170, 255, 0.17),
+    rgba(255, 23, 68, 0.12)
+  );
+  color: #ffffff;
+  font-size: 27px;
+  box-shadow:
+    0 0 18px rgba(0, 170, 255, 0.17),
+    0 0 12px rgba(255, 23, 68, 0.08);
+}
+
+/* Heading */
+.page-container:has(> .project-card) h2 {
+  margin: 0 0 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(22px, 4vw, 28px);
+  line-height: 1.4;
+  color: #f4f8ff;
+  letter-spacing: -0.5px;
+}
+
+/* Description */
+.page-container:has(> .project-card) p {
+  color: #91a1bb;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* Form layout */
+.page-container:has(> .project-card) form {
+  display: grid;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+/* Input fields */
+.page-container:has(> .project-card) input {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 15px;
+  border: 1px solid #243650;
+  border-radius: 9px;
+  outline: none;
+  background: #080d18;
+  color: #edf5ff;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-container:has(> .project-card) input::placeholder {
+  color: #71819b;
+}
+
+.page-container:has(> .project-card) input:hover {
+  border-color: #315274;
+}
+
+.page-container:has(> .project-card) input:focus {
+  border-color: #00aaff;
+  box-shadow:
+    0 0 0 3px rgba(0, 170, 255, 0.1),
+    0 0 16px rgba(0, 170, 255, 0.08);
+}
+
+/* Login / signup submit button */
+.page-container:has(> .project-card) form button[type="submit"] {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 5px;
+  border: 1px solid #ff3158;
+  border-radius: 9px;
+  background: linear-gradient(105deg, #006eff, #244dff 48%, #ff1744);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  box-shadow: 0 0 18px rgba(0, 110, 255, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-container:has(> .project-card) form button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 20px rgba(0, 170, 255, 0.3),
+    0 0 22px rgba(255, 23, 68, 0.2);
+}
+
+/* Switch between login and signup */
+.page-container:has(> .project-card) > .project-card > p:last-child {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #202b3d;
+  text-align: center;
+  font-size: 13px;
+}
+
+.page-container:has(> .project-card) > .project-card > p:last-child button {
+  border: none;
+  background: transparent;
+  color: #00aaff;
+  font-weight: 700;
+}
+
+.page-container:has(> .project-card) > .project-card > p:last-child button:hover {
+  color: #ff4568;
+  text-shadow: 0 0 12px rgba(255, 23, 68, 0.3);
+}
+
+/* Authentication errors */
+.page-container:has(> .project-card) form p {
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid rgba(255, 23, 68, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 23, 68, 0.08);
+  color: #ff718b;
+  font-size: 13px;
+}
+
+/* Entrance animation */
+@keyframes authAppear {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .page-container:has(> .project-card) {
+    padding: 22px 15px;
+  }
+
+  .page-container:has(> .project-card) > .project-card {
+    padding: 27px 22px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .page-container:has(> .project-card) > .project-card {
+    animation: none;
+  }
+}
+
+/* FIX: Make login and signup input text clearly visible */
+
+.page-container:has(> .project-card) input,
+.page-container:has(> .project-card) input:focus,
+.page-container:has(> .project-card) input:active {
+  color: #ffffff !important;
+  background-color: #0b1423 !important;
+  caret-color: #00aaff;
+  -webkit-text-fill-color: #ffffff;
+  opacity: 1;
+}
+
+/* Keep placeholder text visible before typing */
+.page-container:has(> .project-card) input::placeholder {
+  color: #a7b8d0 !important;
+  opacity: 1;
+}
+
+/* Make Chrome autofill text visible too */
+.page-container:has(> .project-card) input:-webkit-autofill,
+.page-container:has(> .project-card) input:-webkit-autofill:hover,
+.page-container:has(> .project-card) input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #00aaff;
+  box-shadow: 0 0 0 1000px #0b1423 inset !important;
+  transition: background-color 9999s ease-out;
+}
+
+/* =========================================
+   PROJECTPULSE DASHBOARD — POLISH UPGRADE
+   Black × Electric Blue × Neon Red
+========================================= */
+
+/* Sticky, glass-style navbar */
+.navbar {
+  background: rgba(5, 7, 13, 0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(0, 170, 255, 0.25);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Logo glow */
+.logo {
+  color: #00aaff;
+  text-shadow: 0 0 10px rgba(0, 170, 255, 0.45);
+  transition: 0.25s ease;
+}
+
+.logo:hover {
+  color: #ff4568;
+  text-shadow: 0 0 14px rgba(255, 23, 68, 0.45);
+}
+
+/* Navigation links */
+.nav-links a {
+  position: relative;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+  border-color: rgba(0, 170, 255, 0.4);
+  background: linear-gradient(
+    110deg,
+    rgba(0, 170, 255, 0.12),
+    rgba(255, 23, 68, 0.09)
+  );
+}
+
+/* Project cards */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Subtle neon accent line on each card */
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 2px;
+  background: linear-gradient(90deg, #00aaff, #ff1744);
+  opacity: 0.7;
+  transition: width 0.3s ease;
+}
+
+.project-card:hover::before {
+  width: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 170, 255, 0.7);
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.25),
+    0 0 18px rgba(0, 170, 255, 0.12);
+}
+
+/* Alternate blue and red project icons */
+.project-card:nth-child(odd) .project-icon {
+  border-color: rgba(0, 170, 255, 0.6);
+  color: #00aaff;
+  background: rgba(0, 170, 255, 0.09);
+}
+
+.project-card:nth-child(even) .project-icon {
+  border-color: rgba(255, 23, 68, 0.6);
+  color: #ff4568;
+  background: rgba(255, 23, 68, 0.09);
+}
+
+/* Skill tags */
+.tag {
+  transition: 0.2s ease;
+}
+
+.tag:hover {
+  border-color: #00aaff;
+  background: rgba(0, 170, 255, 0.15);
+  color: #ffffff;
+}
+
+/* Footer refinement */
+footer {
+  border-top-color: rgba(255, 23, 68, 0.25);
+  background: rgba(5, 7, 13, 0.8);
+}
+
+/* Accessible keyboard focus */
+.nav-links a:focus-visible,
+.project-card button:focus-visible {
+  outline: 2px solid #ff1744;
+  outline-offset: 3px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .nav-links a,
+  .project-card,
+  .project-card::before,
+  .tag {
+    transition: none;
+  }
+
+  .project-card:hover {
+    transform: none;
+  }
+}
+
+/* =====================================
+   PROJECTPULSE — HERO + STATS UPGRADE
+===================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(0, 170, 255, 0.45);
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(255, 23, 68, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(0, 170, 255, 0.19),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #0c1424, #070a12 75%);
+  box-shadow:
+    0 0 28px rgba(0, 170, 255, 0.08),
+    inset 0 0 35px rgba(0, 170, 255, 0.025);
+}
+
+/* Soft decorative glow */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -90px;
+  right: -70px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(255, 23, 68, 0.22);
+  border-radius: 50%;
+  box-shadow:
+    0 0 35px rgba(255, 23, 68, 0.08),
+    inset 0 0 35px rgba(0, 170, 255, 0.08);
+  pointer-events: none;
+}
+
+.hero h1 {
+  max-width: 760px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  max-width: 620px;
+  color: #a8b9d2;
+  font-size: 15px;
+}
+
+/* Statistics panels */
+.stats,
+.stats-grid {
+  gap: 18px;
+}
+
+.stat-card,
+.stat-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #1b2c43;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #101a2b, #080c15);
+  transition: border-color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Blue and red top edge */
+.stat-card::before,
+.stat-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #00aaff, #ff1744);
+  opacity: 0.85;
+}
+
+.stat-card:hover,
+.stat-item:hover {
+  transform: translateY(-4px);
+  border-color: #315779;
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.22),
+    0 0 16px rgba(0, 170, 255, 0.08);
+}
+
+.stat-card h3,
+.stat-item h3 {
+  color: #00b7ff;
+  text-shadow: 0 0 14px rgba(0, 170, 255, 0.2);
+  font-family: 'Orbitron', sans-serif;
+}
+
+.stat-card:nth-child(even) h3,
+.stat-item:nth-child(even) h3 {
+  color: #ff4568;
+  text-shadow: 0 0 14px rgba(255, 23, 68, 0.2);
+}
+
+/* Responsive hero */
+@media (max-width: 600px) {
+  .hero {
+    padding: 35px 22px;
+    border-radius: 16px;
+  }
+
+  .hero::after {
+    width: 170px;
+    height: 170px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+}
+
+/* PROJECTPULSE — APPLICATION STATUS BADGES */
+
+.status,
+.status-pending,
+.status-accepted,
+.status-rejected {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  padding: 7px 12px;
+  border: 1px solid;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  background: #0b1220;
+}
+
+.status-pending {
+  color: #38baff;
+  border-color: rgba(0, 170, 255, 0.55);
+  background: rgba(0, 170, 255, 0.09);
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.08);
+}
+
+.status-accepted {
+  color: #46f7a3;
+  border-color: rgba(70, 247, 163, 0.55);
+  background: rgba(70, 247, 163, 0.09);
+  box-shadow: 0 0 12px rgba(70, 247, 163, 0.08);
+}
+
+.status-rejected {
+  color: #ff4568;
+  border-color: rgba(255, 23, 68, 0.6);
+  background: rgba(255, 23, 68, 0.09);
+  box-shadow: 0 0 12px rgba(255, 23, 68, 0.08);
+}
+
+/* APPLICATION STATUS — NEON BADGES */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  margin-left: 5px;
+  border: 1px solid;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+}
+
+.status-pending {
+  color: #38baff;
+  border-color: #00aaff;
+  background: rgba(0, 170, 255, 0.10);
+  box-shadow: 0 0 12px rgba(0, 170, 255, 0.12);
+}
+
+.status-accepted {
+  color: #46f7a3;
+  border-color: #46f7a3;
+  background: rgba(70, 247, 163, 0.09);
+  box-shadow: 0 0 12px rgba(70, 247, 163, 0.12);
+}
+
+.status-rejected {
+  color: #ff4568;
+  border-color: #ff1744;
+  background: rgba(255, 23, 68, 0.10);
+  box-shadow: 0 0 12px rgba(255, 23, 68, 0.12);
+}
+
+/* ProjectPulse - dark Create Project input boxes */
+.page-container input,
+.page-container textarea,
+.page-container select {
+  background: #101b2e !important;
+  background-color: #101b2e !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  border: 1px solid #29415f !important;
+  caret-color: #00aaff;
+}
+
+.page-container input::placeholder,
+.page-container textarea::placeholder {
+  color: #8b9bb4 !important;
+  -webkit-text-fill-color: #8b9bb4 !important;
+  opacity: 1;
+}
+
+.page-container input:focus,
+.page-container textarea:focus,
+.page-container select:focus {
+  border-color: #00aaff !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 170, 255, 0.18);
+}
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.auth-buttons button {
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.login-btn {
+  background: transparent;
+  color: #38bdf8;
+  border: 1px solid #38bdf8;
+}
+
+.login-btn:hover {
+  background: #123047;
+}
+
+.signup-btn {
+  background: #0284c7;
+  color: white;
+  border: 1px solid #0284c7;
+}
+
+.signup-btn:hover {
+  background: #0369a1;
+}
+
+.about-page {
+  color: #f5f7ff;
+}
+
+.about-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 65px 40px;
+  margin-bottom: 30px;
+  border: 1px solid #26364b;
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 85% 15%, #142d4b 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 100%, #35151d 0%, transparent 38%),
+    #080b12;
+}
+
+.about-eyebrow {
+  display: inline-block;
+  color: #38bdf8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.about-hero h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+
+.about-hero h1 span,
+.about-bottom h2 span {
+  color: #ff4658;
+}
+
+.about-hero p,
+.about-mission p,
+.about-card p {
+  color: #aab6ca;
+  line-height: 1.8;
+}
+
+.about-hero p {
+  max-width: 650px;
+  margin-bottom: 26px;
+}
+
+.about-mission {
+  text-align: center;
+  max-width: 760px;
+  margin: 65px auto;
+}
+
+.about-mission h2,
+.about-bottom h2 {
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.3;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.about-card {
+  padding: 28px;
+  border: 1px solid #26364b;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #111925, #0a0d14);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-6px);
+  border-color: #38bdf8;
+}
+
+.about-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.about-icon.blue {
+  color: #38bdf8;
+  background: #132b42;
+}
+
+.about-icon.red {
+  color: #ff5364;
+  background: #351820;
+}
+
+.about-card h3 {
+  margin-bottom: 10px;
+}
+
+.about-bottom {
+  text-align: center;
+  margin-top: 45px;
+  padding: 45px 20px;
+  border: 1px solid #3a2430;
+  border-radius: 20px;
+  background: linear-gradient(120deg, #101722, #1d1019);
+}
+
+.about-bottom h2 {
+  margin: 0 0 24px;
+}
+
+@media (max-width: 750px) {
+  .about-hero {
+    padding: 40px 24px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-mission {
+    margin: 45px auto;
+  }
+}
+
+
+.project-image {
+  display: block;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+/* Contact Us page */
+.contact-page {
+  color: #f5f7ff;
+}
+
+.contact-page .section-heading {
+  margin-bottom: 28px;
+}
+
+.contact-page .section-heading h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  background: linear-gradient(90deg, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-card {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 32px;
+  border: 1px solid #26364b;
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at top right, #1b2450 0%, transparent 45%),
+    linear-gradient(145deg, #111827, #080b12);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.contact-card:hover {
+  border-color: #5265c9;
+  transform: translateY(-3px);
+}
+
+.contact-card label {
+  display: block;
+  margin-bottom: 18px;
+  color: #e2e8f0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-card input,
+.contact-card select,
+.contact-card textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 8px;
+  padding: 13px 15px;
+  border: 1px solid #334155;
+  border-radius: 11px;
+  background: #0b1220;
+  color: #f8fafc;
+  font: inherit;
+  font-weight: 400;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-card input:focus,
+.contact-card select:focus,
+.contact-card textarea:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+.contact-card textarea {
+  resize: vertical;
+}
+
+.contact-card .primary-btn {
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px;
+}
+
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 20px;
+  }
+}
+
